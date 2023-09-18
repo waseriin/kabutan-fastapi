@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  app:
+    container_name: FastAPI
+    build: ./docker
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "9004:9004"
+    command: uvicorn main:app --reload --host 0.0.0.0 --port 9004
